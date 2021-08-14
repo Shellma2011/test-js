@@ -202,22 +202,55 @@
     
 // model 2 #30
 
-const start = 6;
-const end = 27;
-let number;
+// const start = 6;
+// const end = 27;
+// let number;
 
-for (let i = start; i < end; i += 1) {
-  if (i % 5 === 0) {
-      number = i;
-      break;
-    }
+// for (let i = start; i < end; i += 1) {
+//   if (i % 5 === 0) {
+//       number = i;
+//       break;
+//     }
     
+// }
+
+
+// model 3 #6
+
+// const apartment = {
+//   imgUrl: "https://via.placeholder.com/640x480",
+//   descr: "Spacious apartment in the city center",
+//   rating: 4.7,
+//   price: 5000,
+//   tags: ["premium", "promoted", "top", "trusted"],
+//   owner: {
+//     name: "Henry Sibola",
+//     phone: "982-126-1588",
+//     email: "henry.carter@aptmail.com",
+//   },
+// };
+
+// // Change code below this line
+// apartment.area = 60;
+// apartment.rooms = 3;
+// apartment.location = {};
+
+// apartment.location.country = "Jamaica";
+// apartment.location.city = "Kingston";
+
+// console.log (apartment.location)
+
+// model 3 #9
+
+const emailInputName = 'email';
+const passwordInputName = 'password';
+
+const credentials = {
+  [emailInputName]: 'henry.carter@aptmail.com',
+  [passwordInputName]: 'jqueryismyjam'
 }
 
 
 
-
-
-
-
+console.log(credentials)
 
