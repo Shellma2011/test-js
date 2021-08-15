@@ -242,15 +242,238 @@
 
 // model 3 #9
 
-const emailInputName = 'email';
-const passwordInputName = 'password';
+// const emailInputName = 'email';
+// const passwordInputName = 'password';
 
-const credentials = {
-  [emailInputName]: 'henry.carter@aptmail.com',
-  [passwordInputName]: 'jqueryismyjam'
-}
+// const credentials = {
+//   [emailInputName]: 'henry.carter@aptmail.com',
+//   [passwordInputName]: 'jqueryismyjam'
+// }
 
 
 
-console.log(credentials)
+// console.log(credentials)
 
+
+////////////////////ДОП/////////////////////////////////////
+
+// let vakcines = ['Phizer', 'AstraZeneca', 'Coronvac', 'Sputnic'];
+// let countries = ['Usa', 'Britain', 'China', 'Russia'];
+
+// function vakcinesBank(vakcines, countries) {
+//     let obj = {};
+
+//     for (let vac of vakcines) {
+//         obj[vac] = vakcines;
+//         for (let country of countries) {
+//             obj[country] = countries;
+//         }
+//     }
+
+//     return obj;
+// }
+
+// console.log(vakcinesBank(vakcines, countries));
+
+///////////////////////////////////////////////////////////
+
+// model 3 #11
+
+// const keys = [];
+// const values = [];
+// const advert = {
+//   service: "apt",
+// };
+// const apartment = Object.create(advert);
+// apartment.descr = "Spacious apartment in the city center";
+// apartment.rating = 4;
+// apartment.price = 2153;
+
+// for (const key in apartment) {
+//   // Если это собственное свойство - выполняем тело if
+//   if (apartment.hasOwnProperty(key)) {
+
+//     console.log([key]);
+//   }
+
+  
+// }
+
+// model 3 #13
+
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+//   genres: ["историческая проза", "приключения"],
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+
+// for (const key of keys) {
+//   // Ключ
+//   console.log(key);
+//   // Значение свойства
+//   console.log(book[key]);
+// }
+
+// model 3 #16
+
+// function countTotalSalary(salaries) {
+//   let totalSalary = 0;
+//   // Change code below this line
+//   for (let salary of Object.values(salaries)) {
+//     totalSalary += salary;
+//   }
+//   // Change code above this line
+//   return totalSalary;
+// }
+
+
+// console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 }))
+
+
+// model 3 #17
+
+// const colors = [
+//   { hex: '#f44336', rgb: '244,67,54' },
+//   { hex: '#2196f3', rgb: '33,150,243' },
+//   { hex: '#4caf50', rgb: '76,175,80' },
+//   { hex: '#ffeb3b', rgb: '255,235,59' },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+// // Change code below this line
+// for (let color of colors) {
+//   hexColors.push(color.hex);
+//   rgbColors.push(color.rgb);
+// };
+
+// model 3 #18
+
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getProductPrice(productName) {
+//   // Change code below this line
+//   for (let product of products) {
+     
+//     if (productName === product.name) {
+//       return product.price;
+//       continue;
+//     }
+      
+//     };
+// return null;
+//   }
+
+
+//   console.log(getProductPrice("Scanner"))
+
+// model 3 #20
+
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function calculateTotalPrice(productName) {
+//   // Пиши код ниже этой строки
+//   totalPrice = 0;
+
+//   for (const product of products) {
+//     if (product.name === productName) {
+//         totalPrice += product.price * product.quantity;
+//         console.log('totalPrice', totalPrice);
+//       }
+//     }
+
+//           return totalPrice;
+//  // Пиши код выше этой строки
+// }
+
+// console.log(calculateTotalPrice("Radar"));
+
+
+// model 3 #24
+
+// const colors = [
+//   { hex: '#f44336', rgb: '244,67,54' },
+//   { hex: '#2196f3', rgb: '33,150,243' },
+//   { hex: '#4caf50', rgb: '76,175,80' },
+//   { hex: '#ffeb3b', rgb: '255,235,59' },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+// // Change code below this line
+
+// for (const { hex, rgb } of colors) {
+//   hexColors.push(hex);
+//   rgbColors.push(rgb);
+// }
+
+// console.log(hexColors);
+// console.log(rgbColors);
+
+
+// model 3 #25
+
+// const forecast = {
+//   today: {
+//     low: 28,
+//     high: 32,
+//     icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+//   },
+//   tomorrow: {
+//     low: 27,
+//     high: 31,
+//   },
+// };
+// // Change code below this line
+
+// const 
+// {
+//   today: {high: highToday, low: lowToday, icon: 
+// todayIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"},
+//   tomorrow: {high: highTomorrow, low: 
+//   lowTomorrow, icon: 
+//   tomorrowIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"},
+//   } = forecast;
+
+// model 3 #26
+
+// Change code below this line
+// function calculateMeanTemperature(forecast) {
+  
+//   const
+//     { today: { low: todayLow, high: todayHigh },
+//       tomorrow: { low: tomorrowLow, high: tomorrowHigh } } = forecast
+  
+   
+  
+//   // Change code above this line
+//   return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+// }
+
+// console.log(calculateMeanTemperature({ today: {low: 28, high: 32}, tomorrow: {low: 25, high: 29} }))
+
+// model 3 #28
+
+const firstGroupScores = [64, 42, 93];
+const secondGroupScores = [89, 14, 51, 26];
+const thirdGroupScores = [29, 47, 18, 97, 81];
+// Change code below this line
+const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+const bestScore = Math.max(...allScores);
+const worstScore = Math.min(...allScores);
+
+console.log(allScores);
+console.log(bestScore);
+console.log(worstScore);
