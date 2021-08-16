@@ -466,14 +466,31 @@
 
 // model 3 #28
 
-const firstGroupScores = [64, 42, 93];
-const secondGroupScores = [89, 14, 51, 26];
-const thirdGroupScores = [29, 47, 18, 97, 81];
-// Change code below this line
-const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
-const bestScore = Math.max(...allScores);
-const worstScore = Math.min(...allScores);
+// const firstGroupScores = [64, 42, 93];
+// const secondGroupScores = [89, 14, 51, 26];
+// const thirdGroupScores = [29, 47, 18, 97, 81];
+// // Change code below this line
+// const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+// const bestScore = Math.max(...allScores);
+// const worstScore = Math.min(...allScores);
 
-console.log(allScores);
-console.log(bestScore);
-console.log(worstScore);
+// console.log(allScores);
+// console.log(bestScore);
+// console.log(worstScore);
+
+
+// model 3 #33
+
+// Change code below this line
+function findMatches(firstArray, ...secondArray) {
+  const matches = []; // Don't change this line
+
+  for (const elementSecondArray of secondArray) {
+  if (firstArray.includes(elementSecondArray))
+    matches.push(elementSecondArray);
+  }
+  // Change code above this line
+  return matches;
+}
+
+console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
