@@ -482,15 +482,15 @@
 // model 3 #33
 
 // Change code below this line
-function findMatches(firstArray, ...secondArray) {
-  const matches = []; // Don't change this line
+// function findMatches(firstArray, ...secondArray) {
+//   const matches = []; // Don't change this line
 
-  for (const elementSecondArray of secondArray) {
-  if (firstArray.includes(elementSecondArray))
-    matches.push(elementSecondArray);
-  }
-  // Change code above this line
-  return matches;
-}
+//   for (const elementSecondArray of secondArray) {
+//   if (firstArray.includes(elementSecondArray))
+//     matches.push(elementSecondArray);
+//   }
+//   // Change code above this line
+//   return matches;
+// }
 
-console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
+// console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
