@@ -428,9 +428,107 @@
 //   - разбиваем по словам
 //   - сшиваем в строку с разделителями
 
-const title = 'Top 10 benefits of React framework';
-console.log(title);
+// const title = 'Top 10 benefits of React framework';
+// console.log(title);
 
-const normolizeTitle = title.toLowerCase(),
+// const normolizeTitle = title.toLowerCase();
+// // .toLowerCase() -- привели все буквы к нижнему регистру
+// console.log(normolizeTitle);
 
-  console.log(normolizeTitle);
+// const words = normolizeTitle.split(' ');
+// // .split(' ') -- разбили строку на слова в массиве
+// console.log(words);
+
+// const slug = words.join('-');
+// // .join('-') -- вставили разделение между словами
+// console.log(slug);
+
+///////////////////// 2й вариант
+
+// const slug = title.toLowerCase().split(' ').join('-')
+// console.log(slug);
+// console.log(typeof slug);
+
+////////////////////////////////////////////////////////////////
+
+// напиши скрипт, который считает сумму элементов двух массивов
+
+// const array1 = [5, 10, 15, 20];
+// const array2 = [10, 20, 30];
+// let total = 0;
+
+// console.log(array1);
+// console.log(array2);
+
+// const nambers = array1.concat(array2);
+// // // .concat(array2) -- соединяем два массива вместе
+// console.log(nambers)
+
+// for (let namber of nambers) {
+//   total += namber;
+// }
+
+// console.log(total)
+
+////////////////////////////////////////////////////////////////
+
+// работаем с коллекцией карточек в трелло
+  // - метод splice() -- деструктивный метод!!!
+  // - удалить
+  // - добавить
+  // - обновить
+
+// const cards = [
+//   'Карточка - 1',
+//   'Карточка - 2',
+//   'Карточка - 3',
+//   'Карточка - 4',
+//   'Карточка - 5',
+// ]
+
+// console.table(cards)
+
+///////////////////
+
+// Удаление (по индексу), метод indexOf()
+// const cardToRemove = 'Карточка - 3';
+// const index = cards.indexOf(cardToRemove)
+// // // .indexOf(cardToRemove) -- (идентификатор элемента) нашли индекс под которым находится картоска 3
+// cards.splice(index, 1)
+// // // .splice(index, 1) -- index - выбор позиции, 1 - количество элементов начиная с нее удалить
+
+// console.log(cards)
+
+///////////////////
+
+// // Добавление (по индексу)
+// const cardToIncert = 'Карточка - 6';
+// const index = 3;
+
+// cards.splice(3, 0, cardToIncert)
+// cards.splice(4, 0, cardToIncert) -- добавили еще одну ту же самую карту, много раз вызываем splice()
+
+// cards.splice(3, 0, 'Карточка8', 'Карточка9')
+// // // .splice(1, 0, 'Карточка8', 'Карточка9') 
+// // //  --1 - выбор позиции, 
+// // //  --0 - не удалять элементы (дословно-удалить 0 элементов)
+// // //  --'Карточка8', 'Карточка9' - добавить эти элементы
+// console.table(cards)
+
+///////////////////
+
+// // Обновление (по индексу)
+// const cardToUpdate = 'Карточка - 4';
+// const index = cards.indexOf(cardToUpdate)
+
+// console.log(index)
+
+// cards.splice(index, 1, 'новая обновленная Карточка - 4')
+// // // .splice(3, 1, cardToUpdate) -- 'новая обновленная Карточка - 4'
+// // //  --index - выбор позиции, 
+// // //  --1 - удалить элемент (дословно-удалить 1 элемент)
+// // //  -- вставить на это место 'новая обновленная Карточка - 4'
+
+// console.table(cards)
+
+

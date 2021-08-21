@@ -1,4 +1,5 @@
 // import "./js/to-string.js"
 // import "./js/to-number.js"
 // import "./js/to-boolean.js"
-import "./js/test.js"
+// import "./js/array.js"
+import "./js/function.js"
