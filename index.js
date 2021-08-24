@@ -2,4 +2,5 @@
 // import "./js/to-number.js"
 // import "./js/to-boolean.js"
 // import "./js/array.js"
-import "./js/function.js"
+// import "./js/function.js"
+import "./js/objects.js"
