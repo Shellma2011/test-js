@@ -549,64 +549,406 @@
 // {name:lemon, price:60}
 // {name:Strawberry, price:110}
 
-const cart = {
-    items: [],
-    getItems() {
-        return this.items;
-     },
-    add(product) { //добавить значение
-        this.items.push(product)
-     },
-    remove(productName) { // найти и удалить продукт
-        const { items } = this;
+// const cart = {
+//     items: [],
+//     getItems() {
+//         return this.items;
+//      },
+//     add(product) { //добавить значение
+//         this.items.push(product)
+//      },
+//     remove(productName) { // найти и удалить продукт
+//         const { items } = this;
 
-        for (let i = 0; i < items.length; i += 1) {
-            const { name } = items[i];
-            // const item = this.items[i];
-            //// console.log(item);
+//         for (let i = 0; i < items.length; i += 1) {
+//             const { name } = items[i];
+//             // const item = this.items[i];
+//             //// console.log(item);
 
-            if (productName === name) {
-                console.log('нашли такой товар: ', productName);
-                console.log('индекс i: ', i);
+//             if (productName === name) {
+//                 console.log('нашли такой товар: ', productName);
+//                 console.log('индекс i: ', i);
 
 
-                items.splice(i, 1); //удаляем
-                console.log(items);
-            }
-        }
-    },
-    clear() {
-        this.items = []; // Очистить массив
+//                 items.splice(i, 1); //удаляем
+//                 console.log(items);
+//             }
+//         }
+//     },
+//     clear() {
+//         this.items = []; // Очистить массив
 
-    },
-    countTotalPrice() {
-        // console.log(this.items)
-        const { item } = this;
-        let total = 0;
+//     },
+//     countTotalPrice() {
+//         // console.log(this.items)
+//         const { item } = this;
+//         let total = 0;
 
-        for (const { price } of items) {
-            // console.log(item);
-            total += price;
-        }
-        return total;
-    },
-    increaseQuantity(productName) { },
-    decreaseQuantity(productName) { },
+//         for (const { price } of items) {
+//             // console.log(item);
+//             total += price;
+//         }
+//         return total;
+//     },
+//     increaseQuantity(productName) { },
+//     decreaseQuantity(productName) { },
+// };
+
+// console.log(cart.getItems());
+
+// cart.add({ name: 'apple', price: 50 });
+// cart.add({ name: 'grape', price:70 });
+// cart.add({ name: 'lemon', price:60 });
+// cart.add({ name: 'strawberry', price: 110 });
+
+// console.table(cart.getItems());
+
+// cart.remove('apple');
+// console.log(cart.getItems())
+
+// cart.clear('apple');
+// console.log(cart.getItems());
+
+// console.log('Total: ', cart.countTotalPrice());
+
+////////////////////////////////////////////////////////////////
+
+// const printMessage = function (message) {
+//   console.log(message);
+// };
+
+// const higherOrderFunction = function (callback) {
+//   const string = 'HOCs are awesome';
+//   callback(string);
+// };
+
+// higherOrderFunction(printMessage);
+
+// ////////////////////////////////////////////////////////////////
+
+// for (let i = 0; i < 10; i += 1) {
+//   console.log(i);
+// }
+
+////////////////////////////////////////////////////////////////
+
+// const repeatLog = function (n) {
+//   for (let i = 0; i < n; i += 1) {
+//     console.log(i);
+//   }
+// };
+
+// repeatLog(5);
+
+////////////////////////////////////////////////////////////////
+
+// const printValue = function (value) {
+//   console.log(value);
+// };
+
+// const prettyPrint = function (value) {
+//   console.log('Logging value: ', value);
+// };
+
+// const repeat = function (n, action) {
+//   for (let i = 0; i < n; i += 1) {
+//     action(i);
+//   }
+// };
+
+// // Передаем printValue как callback-функцию
+// repeat(5, printValue);
+// // 0
+// // 1
+// // 2
+
+// // Передаем prettyPrint как callback-функцию
+// repeat(3, prettyPrint);
+// // Logging value: 0
+// // Logging value: 1
+// // Logging value: 2
+
+////////////////////////////////////////////////////////////////
+
+// const repeat = function (n, action) {
+//   for (let i = 0; i < n; i += 1) {
+//     action(i);
+//   }
+// };
+
+// const labels = [];
+
+// repeat(5, value => {
+//   labels.push(`Label ${value + 1}`);
+// });
+
+// console.log(labels); // ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"]
+
+////////////////////////////////////////////////////////////////
+
+// const filter = function (array, test) {
+//   const filteredElements = [];
+
+//   for (const element of array) {
+//     const passed = test(element);
+
+//     if (passed) {
+//       filteredElements.push(element);
+//     }
+//   }
+
+//   return filteredElements;
+// };
+
+// const fruits = [
+//   { name: 'apples', quantity: 200, isFresh: true },
+//   { name: 'grapes', quantity: 150, isFresh: false },
+//   { name: 'bananas', quantity: 100, isFresh: true },
+// ];
+
+// const freshFruits = filter(fruits, fruit => fruit.isFresh);
+// console.log(freshFruits); // массив с объектами apples и bananas
+
+// const fruitsWithQuantity = filter(fruits, fruit => fruit.quantity >= 120);
+// console.log(fruitsWithQuantity); // массив с объектами apples и grapes
+
+////////////////////////////////////////////////////////////////
+
+// const bar = function () {
+//   console.log('bar');
+// };
+
+// const baz = function () {
+//   console.log('baz');
+// };
+
+// const foo = function () {
+//   console.log('foo');
+//   bar();
+//   baz();
+// };
+
+// foo();
+
+////////////////////////////////////////////////////////////////
+
+// const createCounter = function () {
+//   /*
+//    * Локальная переменная privateValue доступна только в замыкании.
+//    * Получить к ней доступ во внешнем коде невозможно.
+//    */
+//   let privateValue = 0;
+
+//   const increment = function () {
+//     privateValue += 1;
+//     console.log(privateValue);
+//   };
+
+//   return {
+//     increment,
+//   };
+// };
+
+// const counterA = createCounter();
+// counterA.increment(); // 1
+// counterA.increment(); // 2
+
+// const counterB = createCounter();
+// counterB.increment(); // 1
+// counterB.increment(); // 2
+// counterB.increment(); // 3
+
+////////////////////////////////////////////////////////////////
+
+// const makeDish = function (shefName, dish) {
+//   console.log(`${shefName} is cooking ${dish}`);
+// };
+
+// makeDish('Mango', 'apple pie'); // Mango is cooking apple pie
+// makeDish('Mango', 'fish'); // Mango is cooking fish
+// makeDish('Mango', 'beef stew'); // Mango is cooking beef stew
+
+// makeDish('Poly', 'muffins'); // Poly is cooking muffins
+// makeDish('Poly', 'pork chops'); // Poly is cooking pork chops
+// makeDish('Poly', 'roast beef'); // Poly is cooking roast beef
+
+////////////////////////////////////////////////////////////////
+
+// const makeShef = function (name) {
+//   /*
+//    * Параметр name это локальная переменная для функции makeShef.
+//    * Это значит что она будет доступна функции makeDish через замыкание.
+//    */
+//   return function makeDish(dish) {
+//     console.log(`${name} is cooking ${dish}`);
+//   };
+// };
+
+// const mango = makeShef('Mango');
+// mango('apple pie'); // Mango is cooking apple pie
+// mango('beef stew'); // Mango is cooking beef stew
+
+// const poly = makeShef('Poly');
+// poly('pancakes'); // Poly is cooking pancakes
+// poly('eggs and bacon'); // Poly is cooking eggs and bacon
+
+////////////////////////////////////////////////////////////////
+
+// const greet = function () {
+//   return `Wellcome to ${this.name} hotel!`;
+// };
+
+// const hotel = { name: 'Resort Hotel' };
+
+// console.log(greet.call(hotel)); // "Wellcome to Resort Hotel!"
+// console.log(greet.apply(hotel)); // "Wellcome to Resort Hotel!"
+
+
+////////////////////////////////////////////////////////////////
+
+// метод call - требует аргумент
+
+// const greet = function (guest, stars) {
+//   return `${guest}, welcome to ${stars}-star ${this.name}!`;
+// };
+
+// const hotel = { name: 'Resort Hotel' };
+// const motel = { name: 'Sunlight Motel' };
+
+// console.log(greet.call(hotel, 'Mango', 5));
+// // "Mango, welcome to 5-star Resort Hotel!"
+
+// console.log(greet.call(motel, 'Poly', 4));
+// // "Poly, welcome to 4-star Sunlight Motel!"
+
+
+////////////////////////////////////////////////////////////////
+
+// метод apply - требует массив
+
+// const greet = function (guest, stars) {
+//   return `${guest}, welcome to ${stars}-star ${this.name}!`;
+// };
+
+// const hotel = { name: 'Resort Hotel' };
+// const motel = { name: 'Sunlight Motel' };
+
+// console.log(greet.apply(hotel, ['Mango', 5]));
+// // "Mango, welcome to 5-star Resort Hotel!"
+
+// console.log(greet.apply(motel, ['Poly', 4]));
+// // "Poly, welcome to 4-star Sunlight Motel!"
+
+
+////////////////////////////////////////////////////////////////
+
+// метод bind -  создает копию функции с привязанным контекстом obj и аргументами arg1,
+
+// const hotel = {
+//   name: 'Resort Hotel',
+//   showThis() {
+//     console.log(this);
+//   },
+// };
+
+// const fn = function (callback) {
+//   callback();
+// };
+
+// // Передаем копию метода showThis с контекстом привязанным к hotel
+// fn(hotel.showThis.bind(hotel)); // {name: "Resort Hotel", showThis: ƒ}
+
+////////////////////////////////////////////////////////////////
+
+// const fnA = function (message, callback) { // передалась в const fnA = function (message, СALLBACK) {
+//     console.log(message);
+
+//     console.log(callback); // происходит вызов функции fnB
+//     callback(200);
+// };
+
+// const fnB = function (number) { // обьявили функцию и кинули как аргумент ссылкой записалась в fnA('qwert', fnB);
+//     console.log('Этот лог при вызове fnB', number);
+// };
+
+// fnA('qwert', fnB); // передалась в const fnA = function (message, СALLBACK) {
+
+////////////////////////////////////////////////////////////////
+
+
+// const doMath = function (a, b, callback) {
+//     const result = callback(a, b);
+
+//     console.log(result);
+// }
+// const add = function (x, y) {
+//     return x + y;
+// }
+
+// const sub = function (x, y) {
+//     return x - y;
+// }
+
+// doMath(5, 3, add);
+// doMath(8, 4, sub);
+// 1. обьявили const add = function (x, y) { и передали в doMath(2, 3, add); ADD
+// 2. ADD передалось и записалось в const doMath = function (a, b, callback) { СALLBACK
+// 3. вызвали СALLBACK в const result = callback(a, b);
+// 4. doMath(2, 3, add); 2 и 3 записалось в a и b const doMath = function (a, b, callback) {
+// 5. после чего они передались  соответственно в x и y в const add = function (x, y) {
+// 6. когда срабатывает return x + y; значение отображается в console.log(result);
+
+
+////////////////////////////////////////////////////////////////
+
+
+// литерал функции - короткая запись - ананимная функция - инлайн
+// если во внешнем коде не нужна, не нужно переиспользование (одноразовая)
+// не нужно вводить функцию, как переиспользуемую переменную
+
+// const doMath = function (a, b, callback) {
+//     const result = callback(a, b);
+
+//     console.log(result);
+// }
+
+// doMath(5, 3, function (x, y) {
+//     return x + y;
+// });
+// doMath(8, 4, function (x, y) {
+//     return x - y;
+// });
+
+
+////////////////////////////////////////////////////////////////
+
+const buttonRef = document.querySelector('.js-button');
+
+const handleBtnClick = function () {
+    console.log('клик по кнопке');
 };
 
-console.log(cart.getItems());
+buttonRef.addEventListener('click', handleBtnClick);
 
-cart.add({ name: 'apple', price: 50 });
-cart.add({ name: 'grape', price:70 });
-cart.add({ name: 'lemon', price:60 });
-cart.add({ name: 'strawberry', price: 110 });
+// 1. этот кусок кода
+// const handleBtnClick = function () {
+//     console.log('клик по кнопке');
+// };
+// выполнить тогда, когда произойдет клик по кнопке
 
-console.table(cart.getItems());
+//////// сделать регистрацию отложенного события можно только если завернуть его в функцию и зарегистрировать его как коллбэк
 
-cart.remove('apple');
-console.log(cart.getItems())
 
-cart.clear('apple');
-console.log(cart.getItems());
+////////////////////////////////////////////////////////////////
 
-console.log('Total: ', cart.countTotalPrice());
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+
