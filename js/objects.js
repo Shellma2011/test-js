@@ -922,13 +922,13 @@
 
 ////////////////////////////////////////////////////////////////
 
-const buttonRef = document.querySelector('.js-button');
+// const buttonRef = document.querySelector('.js-button');
 
-const handleBtnClick = function () {
-    console.log('клик по кнопке');
-};
+// const handleBtnClick = function () {
+//     console.log('клик по кнопке');
+// };
 
-buttonRef.addEventListener('click', handleBtnClick);
+// buttonRef.addEventListener('click', handleBtnClick);
 
 // 1. этот кусок кода
 // const handleBtnClick = function () {
@@ -941,11 +941,107 @@ buttonRef.addEventListener('click', handleBtnClick);
 
 ////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////
+// фильтр
+
+// const filter = function (array, test) {
+//     const filteredArray = [];
+//     for (const el of array) {
+//         console.log(el);
+//         const passed = test(el);
+
+//         if (passed) {
+//             filteredArray.push(el);
+//         }
+//     }
+
+//     return filteredArray;
+// }
+
+// 1. Надо передать функцию
+// 2. функция получает элемент массива
+// 3. если элемент массива удовлетворяет условия, то функция вернет true
+// 4. если не удовлетворяет, то вернет false
+
+// const callback1 = function (value) { // операторы сравнения сами по себе возвращают true/false
+//     return value >= 3;
+// }
+
+// const r1 = filter([1, 2, 3, 4, 5], callback1);
+// console.log(r1);
+
+// const callback2 = function (value) {
+//     return value <= 4;
+// }
+
+// const r2 = filter([1, 2, 3, 4, 5, 6, 7, 8], callback2);
+// console.log(r2);
+
+// ////////////////////////////////////////////////////////////////
+
+//     const fruits = [
+//   { name: 'apples', quantity: 200, isFresh: true },
+//   { name: 'grapes', quantity: 150, isFresh: false },
+//   { name: 'bananas', quantity: 100, isFresh: true },
+// ];
+
+// const getFruitsWithQuantity = function (fruit) {
+//     return fruit.quantity >= 120;
+// }
+
+// const r3 = filter(fruits, getFruitsWithQuantity);
+// console.log(r3);
 
 ////////////////////////////////////////////////////////////////
 
+// замыкание
+
+// const fnA = function (parameter) {
+//     const innerVariable = 'значение внутренней переменной функции fnA';
+
+//     const innerFunction = function () {
+//         console.log(parameter);
+//         console.log(innerVariable);
+//         console.log("это вызов innerFunction");
+//     };
+//     return innerFunction;
+// };
+
+// const fnB = fnA(555);
+
+// fnB();
+
+// console.log(fnB);
+
 ////////////////////////////////////////////////////////////////
+
+const makeDish = function (shefName, dish) {
+  console.log(`${shefName} is cooking ${dish}`);
+};
+
+makeDish('Mango', 'пирожок'); 
+makeDish('Mango', 'омлет'); 
+makeDish('Mango', 'чай'); 
+
+makeDish('Poly', 'котлеты'); 
+makeDish('Poly', 'супик'); 
+makeDish('Poly', 'кофе'); 
+
+const makeShef = function (name) {
+    const makeDish = function (dish) {
+        console.log(`${name} готовит ${dish}`);
+    }
+    return makeDish;
+};
+
+const mango = makeShef('Mango');
+// console.log('mango')
+mango('котлеты'); 
+mango('пирожок'); 
+
+const poly = makeShef('Poly');
+poly('омлет'); 
+poly('чай'); 
+
 
 ////////////////////////////////////////////////////////////////
 
