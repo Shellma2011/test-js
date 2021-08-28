@@ -1014,34 +1014,217 @@
 
 ////////////////////////////////////////////////////////////////
 
-const makeDish = function (shefName, dish) {
-  console.log(`${shefName} is cooking ${dish}`);
-};
+// const makeDish = function (shefName, dish) {
+//   console.log(`${shefName} is cooking ${dish}`);
+// };
 
-makeDish('Mango', 'пирожок'); 
-makeDish('Mango', 'омлет'); 
-makeDish('Mango', 'чай'); 
+// makeDish('Mango', 'пирожок'); 
+// makeDish('Mango', 'омлет'); 
+// makeDish('Mango', 'чай'); 
 
-makeDish('Poly', 'котлеты'); 
-makeDish('Poly', 'супик'); 
-makeDish('Poly', 'кофе'); 
+// makeDish('Poly', 'котлеты'); 
+// makeDish('Poly', 'супик'); 
+// makeDish('Poly', 'кофе'); 
 
-const makeShef = function (name) {
-    const makeDish = function (dish) {
-        console.log(`${name} готовит ${dish}`);
+// const makeShef = function (name) {
+//     const makeDish = function (dish) {
+//         console.log(`${name} готовит ${dish}`);
+//     }
+//     return makeDish;
+// };
+
+// const mango = makeShef('Mango');
+// // console.log('mango')
+// mango('котлеты'); 
+// mango('пирожок'); 
+
+// const poly = makeShef('Poly');
+// poly('омлет'); 
+// poly('чай'); 
+
+////////////////////////////////////////////////////////////////
+
+//округлятор
+
+// const floatingPoint = 3.456789;
+// const someInt = Math.round(floatingPoint); //без точек
+// const withDecimals = Number(floatingPoint.toFixed(2)); //до двух после запятой
+// // console.log(Number(floatingPoint.toFixed(3)));
+// // console.log(Number(floatingPoint.toFixed(4)));
+
+// // const number1 = 3.6678;
+// // const number2 = 4.1234;
+
+// // console.log(Number(number1.toFixed(3)));
+// // console.log(Number(number2.toFixed(4)));
+
+// // const rounder = function (number, places) {
+// //   return Number(number.toFixed(places));
+// // }
+
+// // console.log(rounder(3.4567, 2));
+// // console.log(rounder(3.4567, 4));
+// // console.log(rounder(5.1234, 1));
+// // console.log(rounder(5.1234, 3));
+
+// const rounder = function (places) {
+//   return function (number) {
+//     return Number(number.toFixed(places));
+//   };
+// };
+
+// const rounder2 = rounder(2);
+// const rounder3 = rounder(3);
+
+// console.log(rounder2(3.4567));
+// console.log(rounder3(3.456789789654));
+// console.log(rounder2(5.123));
+// console.log(rounder3(5.1234));
+
+////////////////////////////////////////////////////////////////
+
+// стрелочные функции
+
+
+// const add = function (a, b, c) {
+//   console.log(a, b, c);
+//   return a + b + c;
+// };
+
+// console.log(add(5, 10, 15));
+
+// //
+
+// const add = (a, b, c) => {
+//   console.log(a, b, c);
+//   return a + b + c;
+// }
+
+// console.log(add(5, 10, 15));
+
+//1.если два и больше параметров () обязательно
+//2.если параметр один - () не обязательно
+//3.если параметра нет - обязательно пустые ()
+//4.если после условия будет только возврат одного выражения - 
+    //можно сократить и записать(не явный возврат) не указывая тело(упустить {})
+//5.у стрелочной функции нет локальной переменной arguments, решение - расылить 
+//const addArrow=(...args)=>{
+//   console.log(args)
+// };
+
+////////////////////////////////////////////////////////////////
+
+// const fnA = function (){
+//   return { a: 5, };
+// }
+
+// console.log(fnA());
+
+////
+// const arrowFnA=()=>{
+// return { arrowA: 5, };
+// }
+// console.log(arrowFnA());
+
+//// 
+// const arrowFnA = () => ({ arrowA: 5, });
+// console.log(arrowFnA());
+
+
+////////////////////////////////////////////////////////////////
+
+//modul#4 1
+
+// function makePizza() {
+//   return 'Ваша пицца готовится, ожидайте.';
+// }
+// // Пиши код ниже этой строки
+
+// const result = makePizza;
+// const pointer = makePizza();
+
+// console.log(result);
+// console.log(pointer);
+
+////////////////////////////////////////////////////////////////
+
+//modul#4 4
+
+const pizzaPalace = {
+  pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
+  order(pizzaName, makePizza, onOrderError) {
+    if (!this.pizzaName.includes(pizzaName)) {
+      return onError('Ошибка! В ассортименте нет пиццы с названием ${pizzaName}');
     }
-    return makeDish;
-};
 
-const mango = makeShef('Mango');
-// console.log('mango')
-mango('котлеты'); 
-mango('пирожок'); 
+    // Пиши код выше этой строки
 
-const poly = makeShef('Poly');
-poly('омлет'); 
-poly('чай'); 
+    // Колбэк для onSuccess
+    function makePizza(pizzaName) {
+      return `Ваш заказ принят. Готовим пиццу ${pizzaName}.`;
+    }
+  }
+}
 
+
+// Вызовы метода с колбэками
+consol.log(pizzaPalace.order('Аль Копчино', makePizza, onOrderError));
+// pizzaPalace.order('Четыре нарезона', makePizza, onOrderError);
+// pizzaPalace.order('Биг майк', makePizza, onOrderError);
+// pizzaPalace.order('Венская', makePizza, onOrderError);
+
+
+////////////////////////////////////////////////////////////////
+
+// const filter = function (array, test) {
+//     const filteredArray = [];
+//     for (const el of array) {
+//         console.log(el);
+//         const passed = test(el);
+
+//         if (passed) {
+//             filteredArray.push(el);
+//         }
+//     }
+
+//     return filteredArray;
+// }
+
+// 1. Надо передать функцию
+// 2. функция получает элемент массива
+// 3. если элемент массива удовлетворяет условия, то функция вернет true
+// 4. если не удовлетворяет, то вернет false
+
+// const callback1 = function (value) { // операторы сравнения сами по себе возвращают true/false
+//     return value >= 3;
+// }
+
+// const r1 = filter([1, 2, 3, 4, 5], callback1);
+// console.log(r1);
+
+// const callback2 = function (value) {
+//     return value <= 4;
+// }
+
+// const r2 = filter([1, 2, 3, 4, 5, 6, 7, 8], callback2);
+// console.log(r2);
+
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////
 
