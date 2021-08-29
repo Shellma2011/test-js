@@ -1150,29 +1150,30 @@
 
 //modul#4 4
 
-const pizzaPalace = {
-  pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
-  order(pizzaName, makePizza, onOrderError) {
-    if (!this.pizzaName.includes(pizzaName)) {
-      return onError('Ошибка! В ассортименте нет пиццы с названием ${pizzaName}');
-    }
-
-    // Пиши код выше этой строки
-
-    // Колбэк для onSuccess
-    function makePizza(pizzaName) {
-      return `Ваш заказ принят. Готовим пиццу ${pizzaName}.`;
-    }
-  }
-}
+// const pizzaPalace = {
+//   pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
+//   order(pizzaName, onSuccess, onError) {
+//     if (!this.pizzas.includes(pizzaName)){
+//       return onError(`В ассортименте нет пиццы с названием ${pizzaName}.`);
+//     }
+//     return onSuccess(pizzaName);
+//   },
+// };
 
 
-// Вызовы метода с колбэками
-consol.log(pizzaPalace.order('Аль Копчино', makePizza, onOrderError));
-// pizzaPalace.order('Четыре нарезона', makePizza, onOrderError);
-// pizzaPalace.order('Биг майк', makePizza, onOrderError);
-// pizzaPalace.order('Венская', makePizza, onOrderError);
+// function makePizza(pizzaName) {
+//   return `Ваш заказ принят. Готовим пиццу ${pizzaName}.`;
+// }
 
+// function onOrderError(error) {
+//   return `Ошибка! ${error}`;
+// }
+
+// // Вызовы метода с колбэками
+// console.log(pizzaPalace.order('Аль Копчино', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Четыре нарезона', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Биг майк', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Венская', makePizza, onOrderError));
 
 ////////////////////////////////////////////////////////////////
 
@@ -1212,7 +1213,98 @@ consol.log(pizzaPalace.order('Аль Копчино', makePizza, onOrderError));
 
 ////////////////////////////////////////////////////////////////
 
+//model4 #7
+
+// const orders = [
+//   { email: 'solomon@topmail.ua', dish: 'Burger' },
+//   { email: 'artemis@coldmail.net', dish: 'Pizza' },
+//   { email: 'jacob@mail.com', dish: 'Taco' },
+// ];
+// // console.log(orders)
+
+// // Пиши код ниже этой строки
+// function composeMessage(position) {
+//   return `Готовим ${this.dish} для ${this.email}. 
+//   Ваш заказ ${position + 1}-й в очереди.`
+// }
+
+// const messages = [];
+
+// for (let i = 0; i < orders.length; i += 1) {
+//   messages.push(composeMessage.call(orders[i], i))
+
+// }
+  
+// console.log(messages);
+
 ////////////////////////////////////////////////////////////////
+
+// let name = "Vova";
+// let age = 30;
+
+// function sayHello() {
+//     console.log("Hello");
+// }
+
+// let user = {
+//     name: "Vova",
+//     age: 30,
+
+//     sayHello() {
+//         console.log(this.name, this.age);
+//     },
+// };
+
+// user.sayHello();
+
+// let sara = {
+//     name: "Sara",
+//     age: 50,
+
+//     setName(newName) {
+//         this.name = newName;
+//     },
+// };
+
+// sara.setName("Sara +++++");
+// console.log(sara);
+// sara.setName.call(user, "Vova++++++");
+// console.log(user);
+
+// sara.setName("Aunt Sara");
+// user.sayHello();
+// user.sayHello.call(sara);
+
+// // sara.sayHello();
+// // console.log(sara);
+
+// // console.dir(user);
+// // console.log(user);
+
+
+////////////////////////////////////////////////////////////////
+
+const pizzaPalace = {
+  company: 'Pizza Palace',
+};
+
+const burgerShack = {
+  company: 'Burger Shack',
+};
+
+
+function composeMessage(customerName) {
+  return `${customerName}, всегда рады вас видеть в «${this.company}».`;
+}
+// Пиши код ниже этой строки
+
+const pizzaPalaceComposer = composeMessage;
+const pizzaPalaceMessage = composeMessage.bind(pizzaPalaceComposer, 'Манго');
+console.log(composeMessage)
+
+const burgerShackComposer = composeMessage;
+const burgerShackMessage = composeMessage.bind(burgerShackComposer,'Поли');
+console.log(composeMessage)
 
 ////////////////////////////////////////////////////////////////
 
@@ -1228,6 +1320,16 @@ consol.log(pizzaPalace.order('Аль Копчино', makePizza, onOrderError));
 
 ////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////
+// let arr = [23, 100, -34, 5, 50, 34, -200, -600, -5];
+// let min = arr[0];
 
+// for (let item of arr) {
+//     if (item < min) {
+//       min = item;
+//       continue;
+//     }
+// }
+// console.log(min);
+
+////////////////////////////////////////////////////////////////
 
