@@ -214,7 +214,6 @@
     
 // }
 
-
 // model 3 #6
 
 // const apartment = {
@@ -494,3 +493,219 @@
 // }
 
 // console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
+
+
+// ================================================================ //
+
+//modul#4 1
+
+// function makePizza() {
+//   return 'Ваша пицца готовится, ожидайте.';
+// }
+// // Пиши код ниже этой строки
+
+// const result = makePizza;
+// const pointer = makePizza();
+
+// console.log(result);
+// console.log(pointer);
+
+////////////////////////////////////////////////////////////////
+
+//modul#4 4
+
+// const pizzaPalace = {
+//   pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
+//   order(pizzaName, onSuccess, onError) {
+//     if (!this.pizzas.includes(pizzaName)){
+//       return onError(`В ассортименте нет пиццы с названием ${pizzaName}.`);
+//     }
+//     return onSuccess(pizzaName);
+//   },
+// };
+
+
+// function makePizza(pizzaName) {
+//   return `Ваш заказ принят. Готовим пиццу ${pizzaName}.`;
+// }
+
+// function onOrderError(error) {
+//   return `Ошибка! ${error}`;
+// }
+
+// // Вызовы метода с колбэками
+// console.log(pizzaPalace.order('Аль Копчино', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Четыре нарезона', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Биг майк', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Венская', makePizza, onOrderError));
+
+////////////////////////////////////////////////////////////////
+
+// const filter = function (array, test) {
+//     const filteredArray = [];
+//     for (const el of array) {
+//         console.log(el);
+//         const passed = test(el);
+
+//         if (passed) {
+//             filteredArray.push(el);
+//         }
+//     }
+
+//     return filteredArray;
+// }
+
+// 1. Надо передать функцию
+// 2. функция получает элемент массива
+// 3. если элемент массива удовлетворяет условия, то функция вернет true
+// 4. если не удовлетворяет, то вернет false
+
+// const callback1 = function (value) { // операторы сравнения сами по себе возвращают true/false
+//     return value >= 3;
+// }
+
+// const r1 = filter([1, 2, 3, 4, 5], callback1);
+// console.log(r1);
+
+// const callback2 = function (value) {
+//     return value <= 4;
+// }
+
+// const r2 = filter([1, 2, 3, 4, 5, 6, 7, 8], callback2);
+// console.log(r2);
+
+
+////////////////////////////////////////////////////////////////
+
+//model4 #7
+
+// const orders = [
+//   { email: 'solomon@topmail.ua', dish: 'Burger' },
+//   { email: 'artemis@coldmail.net', dish: 'Pizza' },
+//   { email: 'jacob@mail.com', dish: 'Taco' },
+// ];
+// // console.log(orders)
+
+// // Пиши код ниже этой строки
+// function composeMessage(position) {
+//   return `Готовим ${this.dish} для ${this.email}. 
+//   Ваш заказ ${position + 1}-й в очереди.`
+// }
+
+// const messages = [];
+
+// for (let i = 0; i < orders.length; i += 1) {
+//   messages.push(composeMessage.call(orders[i], i))
+
+// }
+  
+// console.log(messages);
+
+////////////////////////////////////////////////////////////////
+
+// let name = "Vova";
+// let age = 30;
+
+// function sayHello() {
+//     console.log("Hello");
+// }
+
+// let user = {
+//     name: "Vova",
+//     age: 30,
+
+//     sayHello() {
+//         console.log(this.name, this.age);
+//     },
+// };
+
+// user.sayHello();
+
+// let sara = {
+//     name: "Sara",
+//     age: 50,
+
+//     setName(newName) {
+//         this.name = newName;
+//     },
+// };
+
+// sara.setName("Sara +++++");
+// console.log(sara);
+// sara.setName.call(user, "Vova++++++");
+// console.log(user);
+
+// sara.setName("Aunt Sara");
+// user.sayHello();
+// user.sayHello.call(sara);
+
+// // sara.sayHello();
+// // console.log(sara);
+
+// // console.dir(user);
+// // console.log(user);
+
+
+////////////////////////////////////////////////////////////////
+
+// modul4 #9
+
+// const pizzaPalace = {
+//   company: 'Pizza Palace',
+// };
+
+// const burgerShack = {
+//   company: 'Burger Shack',
+// };
+
+
+// function composeMessage(customerName) {
+//   return `${customerName}, всегда рады вас видеть в «${this.company}».`;
+// }
+// // Пиши код ниже этой строки
+
+// const pizzaPalaceComposer = composeMessage.bind(pizzaPalace);
+// const pizzaPalaceMessage = pizzaPalaceComposer('Манго');
+// console.log(composeMessage);
+
+// const burgerShackComposer = composeMessage.bind(burgerShack);
+// const burgerShackMessage = burgerShackComposer('Поли');
+// console.log(composeMessage);
+
+////////////////////////////////////////////////////////////////
+
+// modul4 #10
+
+// const service = {
+//   mailingList: ['mango@mail.com', 'poly@hotmail.de', 'ajax@jmail.net'],
+//   subscribe(email) {
+//     this.mailingList.push(email);
+//     return `Почта ${email} добавлена в рассылку.`;
+//   },
+//   unsubscribe(email) {
+//     this.mailingList = this.mailingList.filter((e) => e !== email);
+//     return `Почта ${email} удалена из рассылки.`;
+//   },
+// }
+
+// function logAndInvokeAction(email, action) {
+//   console.log(`Выполняем действие с ${email}.`);
+//   return action(email);
+// }
+// const firstInvoke = logAndInvokeAction('kiwi@mail.uk', service.subscribe.bind(service));
+// console.log(firstInvoke);
+// // Почта kiwi@mail.uk добавлена в рассылку.
+// console.log(service.mailingList);
+// /* ['mango@mail.com',
+//     'poly@hotmail.de',
+//     'ajax@jmail.net',
+//     'kiwi@mail.uk']*/
+
+// const secondInvoke = logAndInvokeAction('poly@hotmail.de', service.unsubscribe.bind(service));
+// console.log(secondInvoke);
+// // Почта poly@hotmail.de удалена из рассылки.
+// console.log(service.mailingList); // ['mango@mail.com', 'ajax@jmail.net', 'kiwi@mail.uk']
+
+////////////////////////////////////////////////////////////////
+
+// ============================================================= //

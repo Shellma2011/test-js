@@ -112,20 +112,20 @@
 
 //////////////////////////////////////////////
 
-function slugify(title) {
+// function slugify(title) {
 
-    // // const normolize = slugify.toLoverCase();
-    // const normolizeTitle = title.toLowerCase();
+//     // // const normolize = slugify.toLoverCase();
+//     // const normolizeTitle = title.toLowerCase();
     
-    // // const words = normolize.split(' ');
-    // const words = normolizeTitle.split(' ');
+//     // // const words = normolize.split(' ');
+//     // const words = normolizeTitle.split(' ');
 
-    // const slug = words.join('-')
+//     // const slug = words.join('-')
 
 
-    const slug = title.toLowerCase().split(' ').join('-');
+//     const slug = title.toLowerCase().split(' ').join('-');
 
-    return slug;
-    }
+//     return slug;
+//     }
 
-console.log(slugify("English for developer"));
+// console.log(slugify("English for developer"));
