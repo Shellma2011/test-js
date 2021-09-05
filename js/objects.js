@@ -1145,3 +1145,344 @@
 
 ////////////////////////////////////////////////////////////////
 
+// const fn = function () {
+//     console.log('fn->this', this);
+// }
+
+// fn(); // undefined
+
+////////////////////////////////////////////////////////////////
+
+// const book = {
+//     title: 'React for beginners',
+//     showThis() {
+//         console.log('showThis->this', this);
+//     },
+//     showTitle() {
+//         console.log('showTitle->this.title', this.title);
+//     },
+// }
+
+// book.showThis();
+
+////////////////////////////////////////////////////////////////
+
+// const Hotel = function (name, stars, capacity) {
+//   this.name = name;
+//   this.stars = stars;
+//   this.capacity = capacity;
+// };
+
+// const hotel = new Hotel('Resort Hotel', 5, 100);
+// console.log(hotel);
+// // Hotel {name: "Resort Hotel", stars: 5, capacity: 100}
+
+// const motel = new Hotel('Sunlight Motel', 4, 300);
+// console.log(motel);
+// // Hotel {name: "Sunlight Motel", stars: 4, capacity: 300}
+
+////////////////////////////////////////////////////////////////
+
+// const Hotel = function (name, stars, capacity) {
+//   this.name = name;
+//   this.stars = stars;
+//   this.capacity = capacity;
+//   this.guestCount = 0;
+
+//   this.greet = function (guestName) {
+//     console.log(`Hello ${guestName}, wellcome to ${this.name}`);
+//   };
+
+//   this.addGuests = function (amount) {
+//     this.guestCount += amount;
+//   };
+
+//   this.removeGuests = function (amount) {
+//     this.guestCount -= amount;
+//   };
+// };
+
+// const hotel = new Hotel('Sunrise Hotel', 5, 100);
+
+// console.log(hotel);
+// // Hotel {name: "Sunrise Hotel", greet: ƒ, addGuests: f, removeGuests: f}
+// hotel.greet('Mango'); // Hello Mango, wellcome to Sunrise Hotel
+// hotel.addGuests(50);
+// hotel.removeGuests(50);
+
+////////////////////////////////////////////////////////////////
+
+// const mango = {
+//   name: 'Mango',
+//   sales: 5,
+//   sell(product) {
+//     this.sales += 1;
+//     return `Manager ${this.name} sold ${product}.`;
+//   },
+// };
+
+// console.log(mango.sales); // 5
+// console.log(mango.sell('TV')); // Manager Mango sold TV
+// console.log(mango.sell('Microwave')); // Manager Mango sold Microwave
+// console.log(mango.sales); // 7
+
+// const poly = {
+//   name: 'Poly',
+//   sales: 10,
+//   sell(product) {
+//     this.sales += 1;
+//     return `Manager ${this.name} sold ${product}.`;
+//   },
+// };
+
+// console.log(poly.sales); // 10
+// console.log(poly.sell('TV')); // Manager Poly sold TV
+// console.log(poly.sell('Microwave')); // Manager Poly sold Microwave
+// console.log(poly.sales); // 12
+
+////////////////////////////////////////////////////////////////
+
+// const Manager = function (name = 'manager', sales = 0) {
+//   this.name = name;
+//   this.sales = sales;
+
+//   this.sell = function (product) {
+//     this.sales += 1;
+//     return `Manager ${this.name} sold ${product}.`;
+//   };
+// };
+
+// const mango = new Manager('Mango', 5);
+// console.log(mango.sales); // 5
+// console.log(mango.sell('TV')); // Manager Mango sold TV
+// console.log(mango.sell('Microwave')); // Manager Mango sold Microwave
+// console.log(mango.sales); // 7
+
+// const poly = new Manager('Poly', 10);
+// console.log(poly.sales); // 10
+// console.log(poly.sell('TV')); // Manager Poly sold TV
+// console.log(poly.sell('Microwave')); // Manager Poly sold Microwave
+// console.log(poly.sales); // 12
+
+////////////////////////////////////////////////////////////////
+
+// const objC = {
+//     z: 5,
+// };
+// console.log('objC', objC);
+
+// const objB = Object.create(objC);
+// objB.y = 2;
+// console.log('objB', objB);
+// // console.log(objB.y);
+// // console.log(objB.z);
+
+// const objA = Object.create(objB);
+// objA.x = 1;
+// console.log('objA', objA);
+
+// objA.z = 1000;
+// console.log(objA.z);
+
+
+// console.log(objA.hasOwnProperty('y')); // false/true - проверить собственное св-во или св-во прототипа 
+
+// console.log(objA.erytewtywse); // undefined - т.к. нет такого св-ва во всей цепочке
+
+// console.log(objC.hasOwnProperty('z'));
+
+////////////////////////////////////////////////////////////////
+
+// const Car = function (value) {
+//     console.log(this);
+
+//     this.a = value;
+// };
+
+// const myCar = new Car(5);
+// console.log(myCar);
+
+// const myCar2 = new Car(10);
+// console.log(myCar2);
+
+////////////////////////////////////////////////////////////////
+
+// const Car = function ({ brand, model, price } = {}) {
+//     // console.log(config);
+//     // const { brand, model, price } = config;
+
+//     // this.brand = config.brand;
+//     // this.model = config.model;
+//     // this.price = config.price;
+
+//     this.brand = brand;
+//     this.model = model;
+//     this.price = price;
+
+//     this.changePrice = function (newPrice) {
+//         this.price = newPrice;
+//     };
+// };
+
+// const myCar = new Car({
+//     brand: 'Audi',
+//     model: 'Q3',
+//     price: '35000',
+// });
+// console.log(myCar);
+
+// myCar.changePrice(30000);
+
+// const myCar2 = new Car({
+//     brand: 'BMW',
+//     model: 'X6',
+//     price: '50000',
+// });
+// console.log(myCar2);
+
+////////////////////////////////////////////////////////////////
+
+// const User = function ({ email, password } = {}) {
+//     this.email = email;
+//     this.password = password;
+// };
+
+// User.prototype.changeEmail = function (newMail) {
+//     this.email = newMail;
+// };
+
+// const mango = new User({ email: 'mango@gmail.com', password: 111111 });
+
+// mango.changeEmail('qwerty@gmail.com');
+// console.log(mango);
+
+////////////////////////////////////////////////////////////////
+
+//==============================================================//
+
+// 1. У каждого объекта есть св-во __proto__
+// 2. В этом  св-ве лежит ссылка на его ПРОТОТИП, т.е. другой объект
+// 3. При создании литерала объекта, в св-ве __proto__ записывается ссылка 
+//на Функцияю.prototype
+
+// const objA = {
+//     x: 5,
+// };
+
+// console.log(objA.__proto__ === Object.prototype);
+
+// 4. Функция-конструктор это просто функция
+// 5. Всю магию делает new
+// 6. Если функция вызывается через new, создается пустой объект где-то в памяти
+// 7. Функция вызывается в контексте созданного нового объекта
+// 8. В св-во this.__proto__ записывается ссылка на объект Функцияю.prototype
+        // this = Object.create(User.prototype)
+// 9. Ссылка на объект возвращается в место вызова new Функция()
+
+//==============================================================//
+
+/////////////////////////// ПЕРЕСМОТРЕТЬ!!! /////////////////////////////////////
+
+// const CounterPlugin = function ({
+//     rootSelector,
+//     initialValue = 0,
+//     step = 1,
+// } = {}) {
+//     // this.rootSelector = rootSelector;
+//     this.value = initialValue;
+//     this.step = step;
+
+//     this.refs = this._getRefs(rootSelector);
+
+//     this._bindEvents();
+// };
+
+// CounterPlugin.prototype._getRefs = function (rootSelector) {
+//     // console.log(rootSelector);
+
+//     const refs = {};
+//     refs.container = document.querySelector(rootSelector);
+//     refs.incrementBtn = refs.container.querySelector(['data-increment']);
+//     refs.decrementBtn = refs.container.querySelector(['data-decrement']);
+//     refs.value = refs.container.querySelector(['data-value']);
+
+//     return refs;
+// };
+
+// CounterPlugin.prototype._bindEvents = function () {
+//     console.log('CounterPlugin.prototype._bindEvents->this', this);
+//     this._getRefs.incrementBtn.addEventListener('click', () => {
+//         this.increment();
+//         this.updateValueUI();
+//     });
+
+//     this._getRefs.decrementBtn.addEventListener('click', () => {
+//         console.log('CounterPlugin.prototype._bindEvents->this', this);
+//         this.decrement();
+//         this.updateValueUI();
+//     });
+// };
+
+// CounterPlugin.prototype.updateValueUI = function () {
+//     this._refs.value.textContent = this._value;
+// }
+
+// CounterPlugin.prototype.increment = function () {
+//     this.value += this.step;
+// };
+
+// CounterPlugin.prototype.decrement = function () {
+//     this.value -= this.step;
+// }
+
+// const counter1 = new CounterPlugin({rootSelector: '#counter-1', step: 10 });
+// // console.log("counter1: ", counter1);
+
+
+// const counter2 = new CounterPlugin({rootSelector: '#counter-2', step: 2 });
+// // console.log("counter2: ", counter2);
+
+/////////////////////////class///////////////////////////////////////
+
+// class Car1 {
+//     static description = 'Класс описывающий автомобиль';
+
+//     static logInfo(carObj) {
+//         console.log('Car.logInfo -> carObj', carObj);
+//     }
+
+//     constructor({brand, model, price }) {
+//         console.log('Выполняется конструктор');
+//         console.log(this);
+
+//         this.brand = brand;
+//         this.model = model;
+//         this.price = price;
+//     }
+
+//     changePrice(newPrice) {
+//         this.price = newPrice;
+//     }
+
+//     updateModal(newModal) {
+//         this.model = newModal;
+//     }
+// }
+
+// console.dir(Car1);
+
+// console.dir(Car1.description);
+
+// const carInstance = new Car1({
+//     brand: 'Audi',
+//     model: 'Q3',
+//     price: '35000',
+// });
+
+// console.log(Object.getPrototypeOf(carInstance) === Car1.prototype);
+// console.log(carInstance);
+
+// Car1.logInfo(carInstance)
+
+
+
