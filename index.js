@@ -3,6 +3,6 @@
 // import "./js/to-boolean.js"
 // import "./js/array.js"
 // import "./js/function.js"
-// import "./js/objects.js"
-import "./js/modules.js"
+import "./js/objects.js"
+// import "./js/modules.js"
 // import "./js/tasks.js"
