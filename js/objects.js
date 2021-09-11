@@ -1534,7 +1534,8 @@
 // const doubledNumbers = numbers.map(num => num * 2);
 // console.log(doubledNumbers); // [2, 4, 6]
 
-//--Используем map чтобы пройти по базе данных users и получить массив всех имен пользователей.
+//--Используем map чтобы пройти по базе данных users и 
+//получить массив всех имен пользователей.
 
 // const users = [
 //   { name: 'Mango', isActive: true },
@@ -1843,7 +1844,7 @@
 // const tagCount = countTags(tags);
 // console.log(tagCount);
 
-/////// Array.prototype.sort()
+/////// Array.prototype.sort() ДЕСТРУКТИВНЫЙ!!!!!!!!!!
 
 // -Перебирает
 // -Изменяет
@@ -1905,17 +1906,94 @@
 
 // console.log(result);
 
-///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////-------------
+
+// const numbers = [1, 9, 6, 2, 3];
+// console.log('numbers', numbers);
+
+// const letters = ['b', 'B', 'a', 'A'];
+
+// numbers.sort((curEl, nexEl) => {
+//     // return curEl - nexEl;
+//     return nexEl - curEl;
+// });
+// console.log(numbers);
+
+// /// делаем копию массива, т.к. оригинал трогать плохой тон
+// // const copy = [...numbers];
+// const ascSortNumbers = [...numbers].sort();
+// const descscSortNumbers = [...numbers].sort((a, b) => b - a);
+// console.log(ascSortNumbers);
+// console.log(descscSortNumbers);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////
+// const players = [
+//   { id: 'Player-1', name: 'Mango', timePlayed: 310, isActive: false },
+//   { id: 'Player-2', name: 'Poly',  timePlayed: 470, isActive: true },
+//   { id: 'Player-3', name: 'Kiwi',  timePlayed: 230, isActive: true },
+//   { id: 'Player-4', name: 'Ajax', timePlayed: 80, isActive: false },
+//   { id: 'Player-5', name: 'Chelsey', timePlayed: 150, isActive: true },
+// ];
 
-///////////////////////////////////////////////////////////////////////////////////////////
+// const sortedByBestPlayers = [...players].sort((prevPlayer, nextPlayer) => {
+//     return prevPlayer.timePlayed - nextPlayer.timePlayed;
+// });
+// console.table(sortedByBestPlayers);
 
-///////////////////////////////////////////////////////////////////////////////////////////
+// const byName = [...players].sort((a, b) => {
+//     return a.name[0] > b.name[0];
+// });
+// console.table(byName);
 
-///////////////////////////////////////////////////////////////////////////////////////////
+////// array.flat() ////////////////////////////////////////////////////////////////////
+
+// const array = [1, 2, [4, [5]], [6, [7, 8, [9]]]];
+// console.log(array.flat()); // по умолчанию глубина разглаживания 1
+// console.log(array.flat(3)); // разгладило все
+
+///////tweets.flatMap(t => t.tags)///----------
+// вместо распыления можно разгладить (если вложенность массива максимум 1)
+
+// const tweets = [
+//   { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//   { id: '001', likes: 2, tags: ['html', 'css'] },
+//   { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+//   { id: '003', likes: 8, tags: ['css', 'react'] },
+//   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+// ];
+
+// const tags = tweets.flatMap(t => t.tags);
+// console.log(tags);
+
+/////////// цепочки - cheining /////////////////////////////////////////////////////////////////////
+
+// const numbers = [1, 9, 6, 2, 3];
+
+// // const greaterThenTwo = numbers.filter(num => num > 2);
+// // console.log(greaterThenTwo);
+
+// // const multByThree = greaterThenTwo.map(function (num) {
+// //     return num * 3;
+// // });
+// // console.log(multByThree)
+
+// // const sorted = multByThree.sort(function (a, b) {
+// //     return a - b;
+// // });
+// // console.log(sorted)
+
+// //--
+
+// const sorted = numbers
+//     .filter(num => num > 2)
+//     .map(num => num * 3)
+//     .sort((a, b) => a - b);
+// console.log(sorted) // коротко записать цепочкой, аналог того что выше
+
+///////////LODASH--библиотека методов//////////////////////////////////////////////////////////////////////
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
